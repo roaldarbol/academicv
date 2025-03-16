@@ -2,55 +2,57 @@
 
 # Document settings
 settings:
-  headingfont: "Libertinus Serif"
-  bodyfont: "Libertinus Serif"
-  fontsize: 10pt      # Must be a string with unit
-  sectionspacing: 12pt  # Space between sections. Must be a string with unit
-  entry_spacing: 0.1em  # Space between entries within a section. Must be a string with unit
-  element_spacing: 3pt  # Space between elements within an entry. Must be a string with unit
-  linespacing: 5pt      # Space between lines within an element. Must be a string with unit
-  hyperlink_color: rgb(230, 130, 87)   # Can be either a colour string or a rgb() value
-  show_address: false
-  show_number: false
-  show_title: false
-  headingsmallcaps: false
-  sendnote: false
+  font_heading: "Libertinus Serif"
+  font_body: "Libertinus Serif"
+  # size_heading:
+  # size_section_heading:
+  # size_primary: 12pt
+  # size_secondary:
+  # size_tertiary:
+  style_heading: normal # normal, smallcaps, allcaps?
+  color_heading: black
+  color_body: black
+  color_hyperlink: rgb(230, 130, 87)   # Can be either a colour string or a rgb() value
+  spacing_section: 12pt  # Space between sections. Must be a string with unit
+  spacing_entry: 0.1em   # Space between entries within a section. Must be a string with unit
+  spacing_element: 5pt   # Space between elements within an entry. Must be a string with unit
+  spacing_line: 5pt      # Space between lines within an element. Must be a string with unit
   page:
     paper: "a4"
     numbering: "1 / 1"
     number-align: "center"  # Must be "center", "left", or "right"
     margin: 3.5cm        # Must be a string with unit
 
-# Personal information
-personal:
-  name: Mikkel Roald-Arbøl
-  email: mikkel@roald-arboel.com
-  phone: (+45) 20320399
-  url: https://roald-arboel.com
-  titles:
-    - Doctoral Researcher in Computational ethology
-  location:
-    city: Copenhagen
-    region: Copenhagen
-    country: Denmark
-  profiles:
-    - network: GitHub
-      username: roaldarbol
-      url: https://github.com/roaldarbol
-
 # Section definitions and content
 sections:
   - key: personal
-    layout: heading
-    show: true
-    # No entries or title for personal - uses the top-level personal section
+    show: false
+    layout: header
+    primary_element: name
+    secondary_element: ["email"]
+    tertiary_element: 
+    entries:
+      - name: Mikkel Roald-Arbøl
+        email: mikkel@roald-arboel.com
+        phone: (+45) 20320399
+        website: https://roald-arboel.com
+        title: 
+          - "Doctoral Researcher in Computational ethology"
+        location:
+          city: Copenhagen
+          region: Copenhagen
+          country: Denmark
+        profiles:
+          - network: GitHub
+            username: roaldarbol
+            url: https://github.com/roaldarbol
 
   - key: education
+    title: Education
+    show: true
     layout: timeline
     primary_element: ["institution"]
     secondary_element: ["title"]
-    title: Education
-    show: true
     entries:
       - institution: University of Sussex
         location: Brighton, UK
@@ -68,143 +70,143 @@ sections:
         start_date: 2013
         end_date: 2016
 
-  - key: experience
-    layout: timeline
-    primary_element: ["institution"]
-    secondary_element: ["advisors"]  # Explicitly include advisors at secondary level
-    tertiary_element: ["description"]
-    title: Experience
-    show: true
-    entries:
-      - institution: University of Sussex
-        advisors: ["Jeremy Niven"]
-        start_date: 10/2020
-        end_date: 2/2025
-        description: |
-          Some long text describing what I did for this project.
-      - institution: University of Copenhagen
-        advisors: ["Rune W. Berg", "Tom Cat"]
-        start_date: 10/2019
-        end_date: 1/2020
-        description: |
-          Some more text
-      - institution: University of Sussex
-        advisors: ["Jeremy Niven"]
-        start_date: 9/2018
-        end_date: 8/2019
-        description: |
-          Some more text
-      - institution: University of Queensland
-        advisors: ["Timothy Carroll"]
-        start_date: 1/2017
-        end_date: 5/2017
-        description: |
-          Some more text
-      - institution: University of Queensland
-        advisors: ["Luke Kelly"]
-        start_date: 9/2016
-        end_date: 12/2016
-        description: |
-          Some more text
-      - institution: University of Copenhagen
-        advisors: ["Jesper Lundbye-Jensen"]
-        start_date: 9/2015
-        end_date: 12/2016
-        description: |
-          Some more text
+  # - key: experience
+  #   show: true
+  #   layout: timeline
+  #   primary_element: ["institution"]
+  #   secondary_element: ["advisors"]  # Explicitly include advisors at secondary level
+  #   tertiary_element: ["description"]
+  #   title: Experience
+  #   entries:
+  #     - institution: University of Sussex
+  #       advisors: ["Jeremy Niven"]
+  #       start_date: 10/2020
+  #       end_date: 2/2025
+  #       description: |
+  #         Some long text describing what I did for this project.
+  #     - institution: University of Copenhagen
+  #       advisors: ["Rune W. Berg"]
+  #       start_date: 10/2019
+  #       end_date: 1/2020
+  #       description: |
+  #         Developed a prototype for an open source operant conditioning chamber based on single board computer (Raspberry Pi), programmable in Python.
+  #     - institution: University of Sussex
+  #       advisors: ["Jeremy Niven"]
+  #       start_date: 9/2018
+  #       end_date: 8/2019
+  #       description: |
+  #         Developed a trackball (spherical treadmill) for wood ants to investigate whether ants use visual cues (optical flow) to adjust their walking speed.
+  #     - institution: University of Queensland
+  #       advisors: ["Timothy Carroll"]
+  #       start_date: 1/2017
+  #       end_date: 5/2017
+  #       description: |
+  #         Developed prototypes, carried out pilot experiments and did data collection for a range of projects on human motor control.
+  #     - institution: University of Queensland
+  #       advisors: ["Luke Kelly"]
+  #       start_date: 9/2016
+  #       end_date: 12/2016
+  #       description: |
+  #         Assisted in pilot experiments of the active ... of the foot arch 
+  #     - institution: University of Copenhagen
+  #       advisors: ["Jesper Lundbye-Jensen"]
+  #       start_date: 9/2015
+  #       end_date: 12/2016
+  #       description: |
+  #         I investigated whether single nucleotide polymorphisms (SNP) affected aspects of motor learning by combining genetic data with from behavioural data from over 100 participants in across multiple different motor learning tasks.
 
-  - key: publications
-    layout: numbered_list
-    title: Publications
-    show: true
-    entries:
-      - "*Roald-Arbøl, M.*, Yarwood, E., Fernandes, A. S. D., Moubarak, E. M., Drees, C., Schuett, W., & Niven, J. E. (2025). A Low-Cost Trackball System for Automated Movement Capture Allowing Assessment of the Repeatability of Movement for Behavioural Ecology. _In prep_"
+  # - key: publications
+  #   show: true
+  #   layout: numbered_list
+  #   title: Publications
+  #   entries:
+  #     - "*Roald-Arbøl, M.*, Yarwood, E., Fernandes, A. S. D., Moubarak, E. M., Drees, C., Schuett, W., & Niven, J. E. (2025). A Low-Cost Trackball System for Automated Movement Capture Allowing Assessment of the Repeatability of Movement for Behavioural Ecology. _In prep_"
 
-      - "Sobianin, I., Ngotho, S. G., Spector, M. B., *Roald-Arbøl, M.*, Vignal, E., Perineti, C. L., Ellison, L., Al Balush, S., Carriero, A., Eley, M., Cozan, M., Demirbatir, C., Dominiak, S. E., Janiak, F., Frazao, J., Maravall, M., Lagnado, L., Schröder, S., Kemenes, G., Baden T., Niven J. E., King S., Nowotny T., Chagas, A. M. (2025). BeeHive: A flexible open electronics platform for designing research equipment. _In prep_"
+  #     - "Sobianin, I., Ngotho, S. G., Spector, M. B., *Roald-Arbøl, M.*, Vignal, E., Perineti, C. L., Ellison, L., Al Balush, S., Carriero, A., Eley, M., Cozan, M., Demirbatir, C., Dominiak, S. E., Janiak, F., Frazao, J., Maravall, M., Lagnado, L., Schröder, S., Kemenes, G., Baden T., Niven J. E., King S., Nowotny T., Chagas, A. M. (2025). BeeHive: A flexible open electronics platform for designing research equipment. _In prep_"
 
-      - "Verbinnen, G., *Roald-Arbøl, M.*, Niven, J. E., & Nicholls, E. (2024). Shifts in honeybee worker metabolism immediately post-eclosion (p. 2024.12.01.622772). _bioRxiv_. https://doi.org/10.1101/2024.12.01.622772"
+  #     - "Verbinnen, G., *Roald-Arbøl, M.*, Niven, J. E., & Nicholls, E. (2024). Shifts in honeybee worker metabolism immediately post-eclosion (p. 2024.12.01.622772). _bioRxiv_. https://doi.org/10.1101/2024.12.01.622772"
 
-  - key: teaching
-    layout: timeline
-    primary_element: ["title", "institution"]
-    secondary_element: ["professors"]  # Explicitly include advisors at secondary level
-    tertiary_element: ["description"]
-    title: Teaching
-    show: true
-    entries:
-      - institution: University of Sussex
-        title: Mediterranean Ecology Field Course
-        professors: ["Paul Graham", "Valentina Scarponi"]
-        start_date: 2024
-        description: |
-          Some more text
-      - institution: University of Sussex
-        title: Coastal Ecology Field Course
-        professors: ["Claudia Drees"]
-        start_date: 2022
-        end_date: 2024
-        description: |
-          Some more text
-      - institution: University of Sussex
-        title: Statistics
-        professors: ["Jane", "Luc"]
-        start_date: 2022
-        end_date: 2024
-        description: |
-          Some more text
-      - institution: University of Sussex
-        title: Research Methods
-        professors: ["Wiebke Schuett"]
-        start_date: 2021
-        end_date: 2022
-        description: |
-          Some more text
-      - institution: University of Copenhagen
-        title: Athletics 1 & 2
-        professors: ["Mikkel Sørensen", "Birger Fisker"]
-        start_date: 2015
-        end_date: 2016
-        description: |
-          Some more text
+  # - key: teaching
+  #   show: true
+  #   layout: timeline
+  #   primary_element: ["title", "institution"]
+  #   secondary_element: ["professors"]  # Explicitly include advisors at secondary level
+  #   tertiary_element: ["description"]
+  #   title: Teaching
+  #   entries:
+  #     - institution: University of Sussex
+  #       title: Mediterranean Ecology Field Course (827C1)
+  #       professors: ["Paul Graham", "Valentina Scarponi"]
+  #       start_date: 2024
+  #       description: |
+  #         At the field site in Arrifana, Portugal, I helped students with their ecology projects along the coast, both animal and plant, from the experimental design, transportation and how to carry out their data analysis.
+  #     - institution: University of Sussex
+  #       title: Coastal Ecology Field Course (C7160)
+  #       professors: ["Claudia Drees"]
+  #       start_date: 2021
+  #       end_date: 2024
+  #       description: |
+  #         Over multiple years I taught on this course at the Dale Fort in Pembrokeshire, Wales, covering all the main coastal ecosystems. I helped students with planning experimental designs and data analysis in R.
+  #     - institution: University of Sussex
+  #       title: Research Foundations (828C1)
+  #       professors: ["Ane Timenes Laugen", "Luc Bussière"]
+  #       start_date: 2021
+  #       end_date: 2023
+  #       description: |
+  #         In this course, aimed at M.Sc. and Ph.D. students, I helped students during a full-time week focused on R and statistics, covering topics from basic data wrangling all the way to linear mixed effects models.
+  #     - institution: University of Sussex
+  #       title: Research Methods in Biology, Ecology, Zoology (C1021)
+  #       professors: ["Wiebke Schuett"]
+  #       start_date: 2021
+  #       end_date: 2022
+  #       description: |
+  #         I was a doctoral tutor on this first-year undergraduate course, helping students learn R and basic statistics during weekly practical sessions.
+  #     - institution: University of Copenhagen
+  #       title: Athletics 1 & 2
+  #       professors: ["Mikkel Sørensen", "Birger Fisker"]
+  #       start_date: 2015
+  #       end_date: 2016
+  #       description: |
+  #         I was a teaching assistant in athletics which covered multiple disciplines. This entailed both practical feedback during technical sessions as well as helping students in biomechanical analysis of various events.
 
-  - key: awards
-    layout: timeline
-    primary_element: ["title", "institution"]
-    tertiary_element: ["description"]
-    title: Scholarships & Awards
-    show: true
-    entries:
-      - institution: Janelia Research Campus
-        title: Junior Scientist Workshop in Mechanistic Cognitive Neuroscience 
-        start_date: 2023
-        description: |
-          Highly competitive workshop that also covered all expenses, including flights and accommodation.
-      - institution: University of Sussex
-        title: "Sussex Life Sciences PhD Symposium: Best talk"
-        start_date: 2023
-      - institution: The Association for the Study of Animal Behaviour
-        title: Travel Grant
-        start_date: 2023 
-      - institution: Sussex Neuroscience PG Fund
-        title: Travel Grant
-        start_date: 2023
-      - institution: University of Sussex
-        title: Sussex Doctoral Open Research Prize
-        start_date: 2022
-        description: |
-          This inaugural award was awarded to postgraduate researchers for an extraordinary effort in promoting open research practices. With the award came two months extra PhD funding.
+  # - key: awards
+  #   show: true
+  #   layout: timeline
+  #   primary_element: ["title", "institution"]
+  #   tertiary_element: ["description"]
+  #   title: Scholarships & Awards
+  #   entries:
+  #     - institution: Janelia Research Campus
+  #       title: Junior Scientist Workshop in Mechanistic Cognitive Neuroscience 
+  #       start_date: 2023
+  #       description: |
+  #         Highly competitive workshop that also covered all expenses, including flights and accommodation.
+  #     - institution: University of Sussex
+  #       title: "Sussex Life Sciences PhD Symposium: Best talk"
+  #       start_date: 2023
+  #     - institution: The Association for the Study of Animal Behaviour
+  #       title: Travel Grant
+  #       start_date: 2023 
+  #     - institution: Sussex Neuroscience PG Fund
+  #       title: Travel Grant
+  #       start_date: 2023
+  #     - institution: University of Sussex
+  #       title: Sussex Doctoral Open Research Prize
+  #       start_date: 2022
+  #       description: |
+  #         This inaugural award was awarded to postgraduate researchers for an extraordinary effort in promoting open research practices. With the award came two months extra PhD funding.
 
-      - institution: Art in Science Photo Competition, 
-        title: Best Instrument, _Art in Science Photo Competition_
-        start_date: 2019
-        description: |
-          Highly competitive workshop that also covered all expenses, including flights and accommodation.
+  #     - institution: Art in Science Photo Competition, 
+  #       title: Best Instrument, _Art in Science Photo Competition_
+  #       start_date: 2019
+  #       description: |
+  #         Highly competitive workshop that also covered all expenses, including flights and accommodation.
 
-      - institution: Erasmus+, Knud Højgaards Fond, Fam. Hede Nielsen Fond, Oticon Fonden
-        title: Travel Grants
-        start_date: 2018
-        description: |
-          To be able to do my M.Sc thesis at University of Sussex, I secured several competitive travel grants totalling 25.000DKK (Knud H.), 7.500DKK (Fam. Hede Nielsen), 13.500DKK (Oticon), 23.388DKK (Erasmus+) 59.388DKK
+  #     - institution: Erasmus+, Knud Højgaards Fond, Fam. Hede Nielsen Fond, Oticon Fonden
+  #       title: Travel Grants
+  #       start_date: 2018
+  #       description: |
+  #         To be able to do my M.Sc thesis at University of Sussex, I secured several competitive travel grants totalling 25.000DKK (Knud H.), 7.500DKK (Fam. Hede Nielsen), 13.500DKK (Oticon), 23.388DKK (Erasmus+) 59.388DKK
 
 # skills:
 #   - category: Soft Skills
