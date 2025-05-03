@@ -1,4 +1,4 @@
-#import "@preview/academicv:1.0.0": *
+#import "@preview/academicv:1.1.1": *
 
 // Or for local development
 // #import "../cv.typ": *
