@@ -19,6 +19,7 @@ settings:
 # Personal information
 personal:
   name: John Doe
+  pronouns: he / they
   titles:
     - Senior Data Scientist
     - Machine Learning Specialist

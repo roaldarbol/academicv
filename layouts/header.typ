@@ -1,3 +1,22 @@
+// Pronouns
+#let pronouns-text(data, settings) = {
+    if ("pronouns" in data.personal and data.personal.pronouns != none) {
+        let pronouns = text(
+            weight: "light",
+            fill: luma(50),
+            size: settings.fontsize - 1pt,
+        )[(#data.personal.pronouns)]
+        context {
+            place(
+                center + horizon,
+                dx: measure[#data.personal.name].width / 2 
+                    + measure[#pronouns].width / 2 + 0.4em,
+                pronouns
+            )
+        }
+    } else {none}
+}
+
 // Job titles
 #let jobtitle-text(data, settings) = {
     if ("titles" in data.personal and data.personal.titles != none) {
@@ -48,9 +67,8 @@
 
 
 #let layout-header(data, settings, isbreakable: true) = {
-
     align(center)[
-        = #data.personal.name
+        = #data.personal.name #pronouns-text(data, settings)
 
         #for section in data.sections.filter(s => s.layout == "header" and s.show == true) {
             if "include" in section {
