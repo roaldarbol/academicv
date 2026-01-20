@@ -1,13 +1,17 @@
 // Pronouns
 #let pronouns-text(data, settings) = {
     if ("pronouns" in data.personal and data.personal.pronouns != none) {
+        let pronouns = text(
+            weight: "light",
+            fill: luma(50),
+            size: settings.fontsize - 1pt,
+        )[(#data.personal.pronouns)]
         context {
             place(
                 center + horizon,
-                dx: measure[#data.personal.name].width / 2 + 1.8em,
-                text(weight: "light", size: settings.fontsize)[
-                    (#data.personal.pronouns)
-                ]
+                dx: measure[#data.personal.name].width / 2 
+                    + measure[#pronouns].width / 2 + 0.4em,
+                pronouns
             )
         }
     } else {none}
